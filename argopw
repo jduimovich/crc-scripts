@@ -1,0 +1,11 @@
+
+
+P64=$(kubectl get secret openshift-gitops-cluster -n openshift-gitops -ojsonpath='{.data.admin\.password}' )
+
+ARGOPW=$(echo $P64 | base64 --decode -i -)
+
+echo $P64
+echo $ARGOPW
+echo password is $ARGOPW and is in your clipboard
+
+echo $ARGOPW | pbcopy  

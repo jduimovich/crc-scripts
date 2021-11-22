@@ -1,0 +1,6 @@
+
+LOGIN=$(crc console --credentials  -o json  | jq -r .clusterConfig.adminCredentials.password)
+
+echo "The login token for kubeadmin is $LOGIN in the paste buffer"
+
+echo $LOGIN | pbcopy  
