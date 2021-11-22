@@ -1,0 +1,8 @@
+ 
+LOGIN=$(crc.exe console --credentials  -o json  | jq.exe -r .clusterConfig.adminCredentials.password | dos2unix )
+URL=$(crc.exe console --credentials  -o json   | jq.exe -r .clusterConfig.url | dos2unix)
+
+echo logging in as kubeadmin at  $URL  
+  
+oc login --insecure-skip-tls-verify=true -u kubeadmin -p $LOGIN $URL 
+  
