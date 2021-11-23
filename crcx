@@ -1,3 +1,5 @@
+crc start
+
 LOGIN=$(crc console --credentials  -o json  | jq -r .clusterConfig.adminCredentials.password)
 URL=$(crc console --credentials  -o json  | jq -r .clusterConfig.url)
 oc login --insecure-skip-tls-verify=true -u kubeadmin -p $LOGIN $URL
