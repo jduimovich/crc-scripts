@@ -7,3 +7,4 @@ dos2unix $SD/crck
 dos2unix $SD/crcx
 dos2unix $SD/crcpw
 dos2unix $SD/argopw
+dos2unix $SD/clippy

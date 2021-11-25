@@ -8,4 +8,4 @@ echo $P64
 echo $ARGOPW
 echo password is $ARGOPW and is in your clipboard
 
-echo $ARGOPW | pbcopy  
+clippy $ARGOPW  
