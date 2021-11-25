@@ -1,1 +1,5 @@
+#!/bin/bash
+URL=$(crc console --credentials  -o json   | jq -r .clusterConfig.url | dos2unix)
+echo logging in as developer at  $URL   
+
 oc login -u developer -p developer

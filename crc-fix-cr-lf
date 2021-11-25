@@ -1,0 +1,9 @@
+#!/bin/bash
+# Script home directory 
+SD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+dos2unix $SD/crcd
+dos2unix $SD/crck
+dos2unix $SD/crcx
+dos2unix $SD/crcpw
+dos2unix $SD/argopw

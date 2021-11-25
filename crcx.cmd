@@ -1,8 +1,8 @@
 @echo off
 rem clean daemon 
 rem taskkill /IM crc.exe /F /FI "STATUS eq RUNNING"
-start /min crc.exe daemon
-timeout /t 2
+rem start /min crc.exe daemon
+rem timeout /t 2
 
 FOR /f "tokens=*" %%i IN ('crc oc-env') DO @call %%i
 

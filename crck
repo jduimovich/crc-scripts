@@ -1,4 +1,4 @@
- 
+#!/bin/bash
 LOGIN=$(crc console --credentials  -o json  | jq -r .clusterConfig.adminCredentials.password | dos2unix )
 URL=$(crc console --credentials  -o json   | jq -r .clusterConfig.url | dos2unix)
 
