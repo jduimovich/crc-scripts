@@ -4,8 +4,6 @@ P64=$(kubectl get secret openshift-gitops-cluster -n openshift-gitops -ojsonpath
 
 ARGOPW=$(echo $P64 | base64 --decode -i -)
 
-echo $P64
-echo $ARGOPW
-echo password is $ARGOPW and is in your clipboard
+echo password is $ARGOPW 
 
 clippy $ARGOPW  
