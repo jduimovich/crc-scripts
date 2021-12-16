@@ -2,9 +2,14 @@
 
 crc start
 
-LOGIN=$(crc console --credentials  -o json  | jq -r .clusterConfig.adminCredentials.password)
-URL=$(crc console --credentials  -o json  | jq -r .clusterConfig.url)
+LOGIN=$(crc console --credentials  -o json  | \
+ jq -r .clusterConfig.adminCredentials.password )
+URL=$(crc console --credentials  -o json  | jq -r .clusterConfig.url | \
+ dos2unix)
 oc login --insecure-skip-tls-verify=true -u kubeadmin -p $LOGIN $URL
 
 clippy $LOGIN 
 crc console 
+
+echo "Disk is configured as $(crc status | grep Disk | xargs  echo | cut -d ' ' -f 5)"
+echo "You need to resize if needed"
