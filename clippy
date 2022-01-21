@@ -1,13 +1,16 @@
+shopt -s extglob
 
-OS=$(uname -a)  
-if grep -q Darwin <<< "$OS"; then 
-    echo "Password is in your clipboard" 
-    echo -n $1 | pbcopy   
+OS=$(uname -a)
+
+case "$OS" in
+*Darwin*) PROGRAM="pbcopy" ;;
+*microsoft*) PROGRAM="clip.exe" ;;
+*Linux*) PROGRAM="xclip -sel clip" ;;
+esac
+
+if [ -z ${PROGRAM+x} ]; then
+    echo "No clipboard on this platform"
 else
-    if grep -q microsoft  <<< "$OS"; then  
-        echo "Password is in your clipboard"
-        echo -n $1 | clip.exe   
-    else 
-        echo No clipboard on this platform
-    fi
+    echo -n $1 | $PROGRAM
+    echo "Password is in your clipboard" 
 fi
