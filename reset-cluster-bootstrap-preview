@@ -1,0 +1,11 @@
+
+BASE=$(basename `pwd`)
+echo $BASE
+if [ $BASE != "infra-deployments" ]; then 
+    echo "This needs to be run from an infra-deployments directory"
+    exit
+fi 
+crc delete -f 
+crc-first-time.sh
+crcx
+./hack/bootstrap-cluster.sh preview
