@@ -1,0 +1,7 @@
+#!/bin/bash
+LOGIN=$(oc get secret env-boot-keycloak -n boot -o yaml | yq .data.defaultPassword | base64 -d)
+
+echo "Hac PW is in $LOGIN" 
+
+clippy $LOGIN
+ 
