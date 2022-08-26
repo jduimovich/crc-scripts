@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 P64=$(kubectl get secret openshift-gitops-cluster -n openshift-gitops -ojsonpath='{.data.admin\.password}' )
 

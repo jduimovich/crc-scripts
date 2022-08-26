@@ -6,6 +6,5 @@ if [ $BASE != "infra-deployments" ]; then
     exit
 fi 
 crc delete -f 
-crc-first-time.sh
-crcx
+crc-first-time.sh 
 ./hack/bootstrap-cluster.sh preview
