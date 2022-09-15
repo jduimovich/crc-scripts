@@ -1,6 +1,6 @@
 #!/bin/bash
 # start, login a kubeadmin, get the pw for console login
-crc start --disk-size 200
+crc start 
 crck 
 crcpw
 crc console  
