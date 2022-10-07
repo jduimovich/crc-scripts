@@ -5,4 +5,5 @@ URL=$(crc console --credentials  -o json   | jq -r .clusterConfig.url | dos2unix
 echo logging in as kubeadmin at  $URL  
   
 oc login --insecure-skip-tls-verify=true -u kubeadmin -p $LOGIN $URL 
-  
+echo "The login token for kubeadmin is $LOGIN" 
+clippy $LOGIN  
