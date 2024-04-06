@@ -1,0 +1,9 @@
+#!/bin/bash
+
+P64=$(kubectl get secret openshift-gitops-cluster -n openshift-gitops -ojsonpath='{.data.admin\.password}' )
+
+ARGOPW=$(echo $P64 | base64 --decode -i -)
+echo password is $ARGOPW  
+clippy $ARGOPW  
+
+argocd login openshift-gitops-server-openshift-gitops.apps-crc.testing --insecure --grpc-web --username admin --password $ARGOPW  

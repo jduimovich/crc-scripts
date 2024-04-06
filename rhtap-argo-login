@@ -1,0 +1,10 @@
+#!/bin/bash 
+
+URL=$(kubectl get routes rhtap-argocd-server -n rhtap -o jsonpath={.spec.host})
+P64=$(kubectl get secret rhtap-argocd-cluster -n rhtap -ojsonpath='{.data.admin\.password}' )
+ARGOPW=$(echo $P64 | base64 --decode -i -)
+echo
+echo "rhtap console = $URL" 
+echo "rhtap argo pw = $ARGOPW" 
+
+argocd login $URL --insecure --grpc-web --username admin --password $ARGOPW  

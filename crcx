@@ -1,8 +1,7 @@
+
 #!/bin/bash
 # start, login a kubeadmin, get the pw for console login
-crc start 
-crck 
-crcpw
+crc start
+crc-resize.sh 
 crc console  
-echo "Disk is configured as $(crc status | grep Disk | xargs  echo | cut -d ' ' -f 5)"
-echo "You need to resize if needed"
+crck    

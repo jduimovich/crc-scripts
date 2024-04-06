@@ -2,7 +2,5 @@
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 shopt -s extglob
 
-crc setup
-crc start  
-crc-resize.sh
+crc setup 
 crcx
